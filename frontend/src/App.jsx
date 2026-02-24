@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -9,22 +9,30 @@ import Testimonial from './pages/Testimonial'
 import Footer from './pages/Footer'
 import Skills from './pages/Skills'
 import CustomCursor from './components/CustomCursor'
+import IntroAnimation from './components/IntroAnimation'
 
 
 const App = () => {
+    const [introDone, setIntroDone] = useState(false);
+
     return (
-        <div className='relative gradient text-white'>
-            <CustomCursor />
-            <Navbar />
-            <Home />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Testimonial />
-            <Contact />
-            <Footer />
-        </div>
+        <>
+            {!introDone && <IntroAnimation onFinish={() => setIntroDone(true)} />}
+            {introDone && (
+                <div className='relative gradient text-white'>
+                    <CustomCursor />
+                    <Navbar />
+                    <Home />
+                    <About />
+                    <Skills />
+                    <Projects />
+                    <Experience />
+                    <Testimonial />
+                    <Contact />
+                    <Footer />
+                </div>
+            )}
+        </>
     )
 }
 
