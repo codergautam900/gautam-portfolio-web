@@ -159,7 +159,7 @@ const Projects = () => {
                     <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2'>
                         My <span className='bg-clip-text text-white'>Projects</span>
                     </h2>
-                    <div className='w-30 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' />
+                    <div className='max-w-40 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' />
                     <p className='text-gray-400 mt-4 max-w-2xl mx-auto'>
                         Showcasing my work and side projects
                     </p>

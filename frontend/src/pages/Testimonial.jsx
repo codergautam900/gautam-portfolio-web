@@ -109,7 +109,7 @@ const Testimonial = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.3, duration: 0.6 }}
-                        className='w-80 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' 
+                        className='max-w-60 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' 
                     />
                     <motion.p 
                         initial={{ opacity: 0, y: 12 }}

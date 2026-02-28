@@ -34,8 +34,8 @@ const Contact = () => {
         {
             icon: <FaEnvelope />,
             label: "Email",
-            value: "gauravgautam2003@gmail.com",
-            href: "mailto:gauravgautam2003@gmail.com",
+            value: "gauravgautam9865@gmail.com",
+            href: "mailto:gauravgautam9865@gmail.com",
             color: "#0b7def"
         },
         {
@@ -107,7 +107,7 @@ const Contact = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.3, duration: 0.6 }}
-                        className='w-3 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' 
+                        className='max-w-42 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' 
                     />
                     <motion.p 
                         initial={{ opacity: 0, y: 12 }}
@@ -143,7 +143,7 @@ const Contact = () => {
                                     transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
                                     viewport={{ once: true }}
                                     whileHover={{ scale: 1.02, x: 5 }}
-                                    className='flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:border-[#0b7def]/30 transition-all'
+                                    className='flex items-center  gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:border-[#0b7def]/30 transition-all'
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.1, rotate: 5 }}
@@ -154,7 +154,7 @@ const Contact = () => {
                                     </motion.div>
                                     <div>
                                         <p className='text-gray-400 text-sm'>{info.label}</p>
-                                        <p className='text-white font-medium'>{info.value}</p>
+                                        <p className='text-white text-sm font-medium '>{info.value}</p>
                                     </div>
                                 </motion.a>
                             ))}

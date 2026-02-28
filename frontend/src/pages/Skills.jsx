@@ -64,7 +64,7 @@ const Skills = () => {
                         <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2'>
                             My <span className='bg-clip-text text-white'>Skills</span>
                         </h2>
-                        <div className='w-30 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' />
+                        <div className='max-w-36 h-1 bg-gradient-to-r from-[#0b7def] to-[#00bf8f] mx-auto rounded-full' />
                         <p className='text-gray-400 mt-4 max-w-2xl mx-auto'>
                             Technologies and tools I work with to build modern, scalable applications
                         </p>
