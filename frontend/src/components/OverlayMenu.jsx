@@ -53,7 +53,7 @@ const OverlayMenu = ({isOpen, onClose}) => {
                             <Link 
                                 to={item.to} 
                                 onClick={onClose}
-                                className='text-3xl font-bold text-white hover:text-amber-500 transition-colors duration-300'
+                                className='text-xl font-bold text-white hover:text-amber-500 transition-colors duration-300'
                             >
                                 {item.label}
                             </Link>

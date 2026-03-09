@@ -146,7 +146,7 @@ const Footer = () => {
                         >
                             Quick Links
                         </motion.h4>
-                        <ul className='cursor-pointer text-sm text-gray-400' onClick={scrollToTop} >
+                        <ul className='cursor-pointer text-sm text-gray-400'        onClick={scrollToTop} >
                             <li><Link to="/" className='hover:text-gray-300 transition-colors'>Home</Link></li>
                             <li><Link to="/about" className='hover:text-gray-300 transition-colors'>About</Link></li>
                             <li><Link to="/experience" className='hover:text-gray-300 transition-colors'>Experience</Link></li>
