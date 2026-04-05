@@ -30,8 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
     origin: [
-        "http://localhost:5173",   // Vite dev server
-        "http://localhost:3000",   // alternate dev port
+        "https://portfolio-built-by-gaurav.vercel.app", // Live Vercel Frontend
+        "https://my-portfolio-uac7.onrender.com",         // Live Render Website
     ],
     credentials: true,
 }));
