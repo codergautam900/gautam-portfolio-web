@@ -75,7 +75,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-6 py-3 z-50 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`} style={{background: "rgba(0,0,0,0.8)", backdropFilter: "blur(10px)"}}>
+            <nav className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-6 py-3 z-50 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`} style={{background: "rgba(0, 0, 0, 0)", backdropFilter: "blur(10px)"}}>
                 <div className='flex items-center w-full justify-between px-4 sm:px-8'>
 
                     <div className='flex items-center space-x-2'>

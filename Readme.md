@@ -1,229 +1,336 @@
- # Portfolio Application
+# Portfolio App
 
-A full-stack portfolio website built with React (Frontend) and Express.js (Backend). This application showcases personal projects, skills, experience, and testimonials with beautiful animations and a modern design.
+A full-stack developer portfolio built with React + Vite on the frontend and Express + MongoDB on the backend. It includes a public portfolio website, a protected admin dashboard to manage content, Cloudinary-based image uploads, contact mail handling, and a Gemini-powered text enhancement helper for admin workflows.
 
-## 🏗️ Project Structure
+## Live Links
 
-```
-PORTFOLIO APP/
-├── backend/                    # Express.js Backend API
-│   ├── config/
-│   │   └── db.js              # Database configuration
-│   ├── controllers/           # Route controllers
-│   │   ├── contact.controller.js
-│   │   ├── profile.controller.js
-│   │   ├── project.controller.js
-│   │   ├── skill.controller.js
-│   │   └── testimonial.controller.js
-│   ├── middleware/            # Custom middleware
-│   │   ├── auth.middleware.js
-│   │   └── error.middleware.js
-│   ├── models/                # Mongoose models
-│   │   ├── Contact.model.js
-│   │   ├── Profile.model.js
-│   │   ├── Project.model.js
-│   │   ├── Skill.model.js
-│   │   └── Testimonial.model.js
-│   ├── routes/                # API routes
-│   │   ├── contact.routes.js
-│   │   ├── profile.routes.js
-│   │   ├── project.routes.js
-│   │   ├── skill.routes.js
-│   │   └── testimonial.routes.js
-│   ├── utils/
-│   │   └── sendEmail.js       # Email utility
-│   ├── package.json
-│   └── server.js              # Entry point
-│
-└── frontend/                   # React Frontend (Vite)
-    ├── public/                 # Static assets
-    ├── src/
-    │   ├── assets/             # Images and media
-    │   ├── components/         # Reusable components
-    │   │   ├── CustomCursor.jsx
-    │   │   ├── IntroAnimation.jsx
-    │   │   ├── Navbar.jsx
-    │   │   ├── OverlayMenu.jsx
-    │   │   └── ParticlesBackground.jsx
-    │   ├── pages/              # Page components
-    │   │   ├── About.jsx
-    │   │   ├── Contact.jsx
-    │   │   ├── Experience.jsx
-    │   │   ├── Footer.jsx
-    │   │   ├── Home.jsx
-    │   │   ├── Projects.jsx
-    │   │   ├── Skills.jsx
-    │   │   └── Testimonial.jsx
-    │   ├── App.jsx             # Main app component
-    │   ├── index.css           # Global styles
-    │   └── main.jsx            # React entry point
-    ├── index.html
-    ├── package.json
-    └── vite.config.js
-```
+- Live Demo: https://portfolio-built-by-gaurav.vercel.app
+- Backend API: https://my-portfolio-uac7.onrender.com
 
-## 🚀 Tech Stack
+## Highlights
 
-### Backend
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT (JSON Web Tokens)
-- **Password Hashing**: bcryptjs
-- **File Upload**: Multer + Cloudinary
-- **Email**: Nodemailer
-- **CORS**: CORS middleware
+- Responsive portfolio with dedicated pages for Home, About, Skills, Experience, Projects, and Contact
+- Animated UI with intro screen, custom cursor, particles background, gradients, and Framer Motion transitions
+- Protected admin dashboard for managing profile, projects, experience, and skills
+- JWT-based admin authentication
+- Project and profile image uploads using Multer + Cloudinary
+- Contact form with message persistence and email delivery via Nodemailer
+- Gemini-powered text enhancement endpoint for skill names and professional descriptions
+- MongoDB-backed content management for portfolio sections
+
+## Tech Stack
 
 ### Frontend
-- **Framework**: React 19
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Routing**: React Router DOM
-- **Icons**: React Icons
-- **Email Service**: EmailJS
 
-## 📋 Features
+- React 19
+- Vite 7
+- React Router DOM 7
+- Tailwind CSS 4
+- Framer Motion
+- Axios
+- React Toastify
+- React Icons
 
-### Frontend Features
-- **Custom Cursor**: Personalized mouse cursor effect
-- **Intro Animation**: Engaging loading animation
-- **Particles Background**: Interactive particle effects
-- **Responsive Design**: Mobile-friendly layout
-- **Smooth Scrolling**: Seamless navigation between sections
-- **Contact Form**: Functional contact form with EmailJS
-- **Project Showcase**: Display portfolio projects
-- **Skills Display**: Visual skills representation
-- **Experience Timeline**: Work experience display
+### Backend
 
-### Backend Features
-- **RESTful API**: Standard REST API design
-- **CRUD Operations**: Full CRUD for all entities
-- **Authentication**: Protected routes with JWT
-- **Error Handling**: Centralized error middleware
-- **Email Integration**: Send emails via Nodemailer
+- Node.js
+- Express 5
+- MongoDB + Mongoose
+- JWT
+- bcryptjs
+- Multer
+- Cloudinary
+- Nodemailer
+- Google Gemini API
 
-## 🛠️ Installation & Setup
+## Project Structure
 
-### Prerequisites
-- Node.js (v14+)
-- MongoDB (local or Atlas)
-- npm or yarn
-
-### Backend Setup
-
-1. Navigate to backend directory:
+```text
+PORTFOLIO APP/
+|-- backend/
+|   |-- config/
+|   |   |-- cloudinary.js
+|   |   |-- db.js
+|   |   |-- env.js
+|   |   `-- seeder.js
+|   |-- controllers/
+|   |   |-- ai.controller.js
+|   |   |-- auth.controller.js
+|   |   |-- contact.controller.js
+|   |   |-- experience.controller.js
+|   |   |-- profile.controller.js
+|   |   |-- project.controller.js
+|   |   `-- skill.controller.js
+|   |-- middleware/
+|   |   |-- auth.middleware.js
+|   |   `-- error.middleware.js
+|   |-- models/
+|   |   |-- Contact.model.js
+|   |   |-- Experience.model.js
+|   |   |-- Profile.model.js
+|   |   |-- Project.model.js
+|   |   |-- Skill.model.js
+|   |   `-- User.model.js
+|   |-- routes/
+|   |   |-- ai.routes.js
+|   |   |-- auth.routes.js
+|   |   |-- contact.routes.js
+|   |   |-- experience.routes.js
+|   |   |-- profile.routes.js
+|   |   |-- project.routes.js
+|   |   `-- skill.routes.js
+|   `-- server.js
+|-- frontend/
+|   |-- public/
+|   |-- src/
+|   |   |-- assets/
+|   |   |-- components/
+|   |   |-- context/
+|   |   |-- forms/
+|   |   |-- pages/
+|   |   |-- routes/
+|   |   |-- services/
+|   |   |-- App.jsx
+|   |   |-- index.css
+|   |   `-- main.jsx
+|   |-- index.html
+|   `-- package.json
+`-- README.md
 ```
-bash
+
+## Main Features
+
+### Public Website
+
+- Hero section with animated intro experience
+- About page with profile image, education, and social links
+- Skills page with categorized skills and icon-based presentation
+- Experience timeline for work and education entries
+- Projects showcase with category filtering, tech stacks, GitHub links, and live demo links
+- Contact page with form submission and feedback toasts
+
+### Admin Dashboard
+
+- Secure login flow for admin access
+- Manage profile details and profile image
+- Create, update, and delete projects
+- Create, update, and delete experience entries
+- Create, update, and delete skills
+- Quick links to portfolio pages from the dashboard
+
+### Backend Capabilities
+
+- Portfolio content stored in MongoDB
+- Cloudinary integration for uploaded media
+- Automated admin seeding from environment variables
+- Centralized error handling
+- Protected routes with bearer token authentication
+- Gemini endpoint for polishing text inside admin workflows
+
+## API Overview
+
+Base URL:
+
+- Local: `http://localhost:5000`
+- Production: `https://my-portfolio-uac7.onrender.com`
+
+### Health
+
+- `GET /` - API health check
+
+### Contact
+
+- `POST /api/contact` - send a message and store it in the database
+
+### Profile
+
+- `GET /api/user/profile` - fetch portfolio profile data
+- `POST /api/user/profile` - create or update profile data with optional image upload
+
+### Projects
+
+- `GET /api/projects` - fetch all projects
+- `GET /api/projects?category=Frontend` - filter projects by category
+- `POST /api/projects` - create a project with optional image upload
+- `PUT /api/projects/:id` - update a project
+- `DELETE /api/projects/:id` - delete a project
+
+### Experience
+
+- `GET /api/experiences` - fetch all experience entries
+- `GET /api/experiences?type=work` - filter by `work` or `education`
+- `POST /api/experiences` - create an experience entry
+- `PUT /api/experiences/:id` - update an experience entry
+- `DELETE /api/experiences/:id` - delete an experience entry
+
+### Skills
+
+- `GET /api/skills` - fetch all skills and grouped categories
+- `POST /api/skills` - create a skill
+- `PUT /api/skills/:id` - update a skill
+- `DELETE /api/skills/:id` - delete a skill
+
+### AI
+
+- `POST /api/ai/enhance` - enhance text using Gemini
+
+Example request body:
+
+```json
+{
+  "text": "react js",
+  "contextType": "skill"
+}
+```
+
+### Auth
+
+- `POST /api/auth/login` - admin login
+- `GET /api/auth/me` - get current logged-in admin
+- `GET /api/auth/init` - one-time admin initialization route
+
+## Environment Variables
+
+### Backend `.env`
+
+Create `backend/.env`:
+
+```env
+PORT=5000
+NODE_ENV=development
+MONGODB_URL=your_mongodb_connection_string
+MY_EMAIL=your_email@gmail.com
+MY_PASSWORD=your_email_app_password
+SECRET_TOKEN_KEY=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+GEMINI_API_KEY=your_gemini_api_key
+ADMIN_PASSWORD=your_admin_password
+```
+
+Notes:
+
+- `MY_EMAIL` is used as the admin email seed and also as the receiver for contact form emails.
+- `MY_PASSWORD` is used for mail transport.
+- `ADMIN_PASSWORD` is used to seed or sync the admin account at server startup.
+
+### Frontend `.env`
+
+Create `frontend/.env`:
+
+```env
+VITE_BACKEND_URL=http://localhost:5000
+```
+
+For production, this project currently points to:
+
+```env
+VITE_BACKEND_URL=https://my-portfolio-uac7.onrender.com
+```
+
+## Local Setup
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd "PORTFOLIO APP"
+```
+
+### 2. Install backend dependencies
+
+```bash
 cd backend
-```
-
-2. Install dependencies:
-```
-bash
 npm install
 ```
 
-3. Create `.env` file in backend root:
-```
-env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
+### 3. Install frontend dependencies
+
+```bash
+cd ../frontend
+npm install
 ```
 
-4. Start the backend server:
-```
-bash
-# Development (with nodemon)
+### 4. Start the backend
+
+```bash
+cd ../backend
 npm run dev
+```
 
-# Production
+### 5. Start the frontend
+
+```bash
+cd ../frontend
+npm run dev
+```
+
+### 6. Open the app
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:5000`
+
+## Available Scripts
+
+### Frontend
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
+
+### Backend
+
+```bash
+npm run dev
 npm start
 ```
 
-The backend will run on `http://localhost:5000`
-
-### Frontend Setup
-
-1. Navigate to frontend directory:
-```
-bash
-cd frontend
-```
-
-2. Install dependencies:
-```
-bash
-npm install
-```
-
-3. Start the development server:
-```
-bash
-npm run dev
-```
-
-The frontend will run on `http://localhost:5173`
-
-4. Build for production:
-```
-bash
-npm run build
-```
-
-## 📡 API Endpoints
-
-### Contact
-- `POST /api/contact` - Submit contact form
+## Data Models
 
 ### Profile
-- `GET /api/profile` - Get profile data
-- `POST /api/profile` - Create/update profile (protected)
 
-### Projects
-- `GET /api/projects` - Get all projects
-- `POST /api/projects` - Create project (protected)
-- `PUT /api/projects/:id` - Update project (protected)
-- `DELETE /api/projects/:id` - Delete project (protected)
+- Name, professional title, location, email, phone, availability
+- About text
+- Social links
+- Education array
+- Profile image
 
-### Skills
-- `GET /api/skills` - Get all skills
-- `POST /api/skills` - Add skill (protected)
-- `DELETE /api/skills/:id` - Delete skill (protected)
+### Project
 
-### Testimonials
-- `GET /api/testimonials` - Get all testimonials
-- `POST /api/testimonials` - Add testimonial (protected)
-- `DELETE /api/testimonials/:id` - Delete testimonial (protected)
+- Title, description, image
+- Category
+- Tech stack
+- GitHub link
+- Live demo link
+- Display order
 
-## 🎨 Customization
+### Experience
 
-### Adding Your Content
-1. Update the MongoDB database with your profile, projects, skills, and testimonials
-2. Modify the frontend components in `frontend/src/pages/` to reflect your information
-3. Replace images in `frontend/src/assets/` with your own
+- Type: `work` or `education`
+- Title, company, location, period
+- Description
+- Technologies
+- Display order
 
-### Styling
-- Tailwind CSS is used for styling - modify `frontend/src/index.css` for custom styles
-- Tailwind configuration is in `frontend/vite.config.js`
+### Skill
 
-## 📄 License
+- Name
+- Color
+- Category
+- Display order
 
-ISC License
+## Deployment Notes
 
-## 👤 Author
+- Frontend is configured for Vercel deployment
+- Backend is configured for Render deployment
+- CORS currently allows:
+- `https://portfolio-built-by-gaurav.vercel.app`
+- `https://my-portfolio-uac7.onrender.com`
 
-Your Name
+## Author
 
-## 🙏 Acknowledgments
-
-- React Team
-- Vite Team
-- Tailwind CSS
-- Framer Motion
+Gaurav Gautam

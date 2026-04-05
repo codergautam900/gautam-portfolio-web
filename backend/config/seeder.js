@@ -13,7 +13,7 @@ const seedAdmin = async () => {
         console.log("Seeding process started. Email from ENV:", adminEmail);
 
         if (!adminEmail || !adminPassword) {
-            console.warn("⚠️ MY_EMAIL or MY_PASSWORD is not defined in .env. Admin seeding skipped.");
+            console.warn("⚠️ MY_EMAIL or ADMIN_PASSWORD is not defined in .env. Admin seeding skipped.");
             return;
         }
 

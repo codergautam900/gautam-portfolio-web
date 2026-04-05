@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa"
 import { FiArrowUp, FiSettings } from "react-icons/fi"
-import ParticlesBackground from "./ParticlesBackground"
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -66,7 +65,6 @@ const Footer = () => {
 
     return (
         <footer className='w-full bg-black relative overflow-hidden'>
-            <ParticlesBackground />
             {/* Background Gradient */}
             <div className='absolute inset-0 pointer-events-none'>
                 <div className='absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#0b7def]/30 to-transparent' />

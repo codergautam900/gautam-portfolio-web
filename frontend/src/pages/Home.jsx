@@ -124,7 +124,7 @@ const Home = () => {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.8, duration: 0.8 }}
                             >
-                                <a href="/Resume.pdf" className='px-6 py-3 rounded-2xl font-bold text-md text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all duration-500'>My Resume</a>
+                                <a href="#Resume.pdf" className='px-6 py-3 rounded-2xl font-bold text-md text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all duration-500'>My Resume</a>
                             </motion.div>
 
                             <div className='mt-10 flex gap-5 text-xl md:text-lg justify-center md:justify-start'>
