@@ -1,18 +1,5 @@
-import './index.css'
-import App from './App.jsx'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from "react-router-dom";
-import PortfolioProvider from "./context/PortfolioContext";
-import { AuthProvider } from "./context/AuthContext";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 
-
-
-createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
-        <AuthProvider>
-            <PortfolioProvider>
-                <App />
-            </PortfolioProvider>
-        </AuthProvider>
-    </BrowserRouter>
-)
+createRoot(document.getElementById("root")).render(<App />);
