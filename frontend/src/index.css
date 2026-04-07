@@ -877,6 +877,99 @@ img {
   color: var(--accent);
 }
 
+.project-takeaway {
+  margin-top: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.project-takeaway strong {
+  color: var(--accent-strong);
+}
+
+.project-evidence-grid,
+.readiness-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-evidence-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.15rem;
+}
+
+.project-evidence-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  border-radius: 1.1rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-evidence-card span {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-evidence-card strong {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.project-actions {
+  margin-top: 1.3rem;
+}
+
+.project-link-button {
+  width: fit-content;
+}
+
+.readiness-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.readiness-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.readiness-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.readiness-head h3 {
+  margin-bottom: 0.4rem;
+}
+
+.readiness-list {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.readiness-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.readiness-list li svg {
+  flex-shrink: 0;
+  margin-top: 0.16rem;
+  color: var(--accent-strong);
+}
+
 .github-layout {
   align-items: start;
 }
@@ -885,6 +978,10 @@ img {
 .github-highlights {
   display: grid;
   gap: 1rem;
+}
+
+.github-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .github-card {
@@ -1004,6 +1101,10 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .readiness-grid {
+    grid-template-columns: 1fr;
+  }
+
   .info-grid {
     grid-template-columns: 1fr;
   }
@@ -1056,6 +1157,10 @@ img {
     transform: translateY(0);
     pointer-events: auto;
   }
+
+  .github-stats {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1087,6 +1192,14 @@ img {
   .skill-grid,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-link-button {
+    width: 100%;
   }
 
   .hero-title {

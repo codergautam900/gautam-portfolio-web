@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   FiArrowRight,
+  FiCheckCircle,
   FiCode,
+  FiCpu,
   FiDownload,
   FiExternalLink,
   FiGrid,
@@ -11,7 +13,9 @@ import {
   FiMenu,
   FiMoon,
   FiPhone,
+  FiShield,
   FiSun,
+  FiTrendingUp,
   FiX,
 } from "react-icons/fi";
 import { FaGithub, FaHackerrank, FaInstagram, FaJava, FaNodeJs, FaReact } from "react-icons/fa";
@@ -31,6 +35,8 @@ const portfolio = {
   roles: ["Full Stack Developer", "Flutter Developer", "AI/ML Enthusiast"],
 };
 
+const resumeFile = "/Gautam-Sagar-Resume.pdf";
+
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -47,9 +53,9 @@ const socialLinks = [
 ];
 
 const quickStats = [
-  { value: "2023-2027", label: "B.Tech CSE at AKTU" },
-  { value: "Internship Ready", label: "Open to software development internships" },
-  { value: "Apps + AI", label: "Building practical full stack and ML-driven products" },
+  { value: "4", label: "Public portfolio projects with visible repository proof" },
+  { value: "3", label: "Core tracks: Full Stack, Flutter, and AI/ML exploration" },
+  { value: "2023-2027", label: "B.Tech CSE journey at AKTU" },
 ];
 
 const highlights = [
@@ -63,6 +69,36 @@ const goals = [
   "Seeking software development internships",
   "Open to backend and full stack roles",
   "Interested in building impactful tech products",
+];
+
+const executionSignals = [
+  {
+    title: "System Thinking",
+    icon: FiTrendingUp,
+    description: "I prefer products where frontend, backend, and user outcomes stay connected instead of being built in isolation.",
+    bullets: [
+      "Comfortable with auth flows, role logic, APIs, and dashboard-style experiences",
+      "Strong fit for teams that want product-minded engineering, not just task completion",
+    ],
+  },
+  {
+    title: "Realtime and Reliability",
+    icon: FiShield,
+    description: "My strongest project themes revolve around alerts, messaging, event handling, and dependable application flow.",
+    bullets: [
+      "Experience with Socket.IO patterns, realtime interaction, and event-driven features",
+      "Interested in backend and full stack roles where correctness and responsiveness matter",
+    ],
+  },
+  {
+    title: "Applied Learning Mindset",
+    icon: FiCpu,
+    description: "I actively connect academic learning with practical product builds across web, mobile, and AI-assisted systems.",
+    bullets: [
+      "Building while learning keeps my portfolio grounded in real implementation work",
+      "Good internship fit for teams that value speed, ownership, and steady skill growth",
+    ],
+  },
 ];
 
 const focusPillars = [
@@ -126,6 +162,7 @@ const projects = [
   {
     title: "SustainOS AI",
     status: "Flagship full stack platform",
+    repo: "https://github.com/gauravgautam2003/SustaionOS-open-source-sustainability-monitoring-action-app.git",
     summary:
       "A sustainability intelligence system that turns water and energy telemetry into alerts, AI insights, and forecasts for smart environments.",
     points: [
@@ -133,11 +170,19 @@ const projects = [
       "Generates AI-assisted insights and forecasting for campuses and infrastructure systems",
       "Structured like a SaaS product with role-aware workflows and actionable dashboards",
     ],
+    takeaway:
+      "Shows full stack product structure, data-to-decision thinking, and the ability to turn a technical problem into a usable platform concept.",
+    evidence: [
+      { label: "Architecture", value: "Telemetry ingestion, alerting flow, dashboards, and AI-style forecasting outputs" },
+      { label: "Engineering Signal", value: "SaaS-style structure with role-aware workflows and practical product direction" },
+      { label: "Why It Matters", value: "Demonstrates backend planning, frontend clarity, and systems thinking in one project" },
+    ],
     stack: ["React", "Node.js", "Express", "MongoDB", "Forecasting", "AI Insights"],
   },
   {
     title: "Silent Witness",
     status: "Realtime emergency response concept",
+    repo: "https://github.com/codergautam900/-InvisibleWitness-AI.git",
     summary:
       "An intelligent accident detection and reporting system focused on cutting emergency response time with instant alerts.",
     points: [
@@ -145,7 +190,54 @@ const projects = [
       "Pushes real-time notifications toward emergency services and responders",
       "Built around speed, clarity, and practical impact in urgent situations",
     ],
+    takeaway:
+      "Highlights event-driven problem solving, response-focused UX, and the ability to design software around urgency and safety.",
+    evidence: [
+      { label: "Architecture", value: "Detection pipeline, incident reporting flow, and emergency alert handling" },
+      { label: "Engineering Signal", value: "Realtime communication thinking with structured backend-driven event flow" },
+      { label: "Why It Matters", value: "Strong interviewer signal for systems where latency, alerts, and correctness matter" },
+    ],
     stack: ["Realtime Alerts", "APIs", "Event Handling", "Automation", "Safety Tech"],
+  },
+  {
+    title: "Blogshub",
+    status: "Content platform build",
+    repo: "https://github.com/codergautam900/Blogshub.git",
+    summary:
+      "A MERN-based blogging platform focused on publishing workflows, content management, and a smooth reader-writer experience.",
+    points: [
+      "Supports creating and managing blog content through a structured full stack workflow",
+      "Designed around readable UI, content delivery, and practical CRUD functionality",
+      "Reflects experience with application structure, routing, and backend-connected interfaces",
+    ],
+    takeaway:
+      "Demonstrates that I can build clean CRUD-heavy product flows, organize a MERN codebase, and focus on usable content experiences.",
+    evidence: [
+      { label: "Architecture", value: "Content CRUD, routing structure, backend-connected UI, and publishing workflow" },
+      { label: "Engineering Signal", value: "Solid full stack fundamentals for application organization and data handling" },
+      { label: "Why It Matters", value: "Shows execution discipline beyond flashy features by shipping practical product flows" },
+    ],
+    stack: ["React", "Node.js", "Express", "MongoDB", "CRUD", "Content Platform"],
+  },
+  {
+    title: "MERN Chat App",
+    status: "Realtime communication app",
+    repo: "https://github.com/codergautam900/mern-chat-app.git",
+    summary:
+      "A chat-focused MERN application built around realtime messaging, interactive UI flows, and responsive user communication.",
+    points: [
+      "Implements chat interactions with backend-driven messaging flows",
+      "Explores realtime behavior and user-focused interface responsiveness",
+      "Demonstrates practical work with full stack app state and communication features",
+    ],
+    takeaway:
+      "Acts as strong proof that I can work with realtime communication patterns, app state, and interactive user experiences.",
+    evidence: [
+      { label: "Architecture", value: "Socket-driven messaging flow, auth logic, and interactive chat state" },
+      { label: "Engineering Signal", value: "Realtime application thinking with responsive full stack coordination" },
+      { label: "Why It Matters", value: "Good signal for collaboration tools, dashboards, and user-interactive systems" },
+    ],
+    stack: ["MERN", "Socket.IO", "Realtime Messaging", "Authentication", "Responsive UI"],
   },
 ];
 
@@ -283,6 +375,30 @@ function App() {
 
   const githubStatsUrl = `https://github-readme-stats.vercel.app/api?username=${portfolio.githubUsername}&show_icons=true&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7&icon_color=7bf7c4&ring_color=ffb26b`;
   const githubLanguagesUrl = `https://github-readme-stats.vercel.app/api/top-langs/?username=${portfolio.githubUsername}&layout=compact&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7`;
+  const githubBlogshubRepoUrl = "https://github-readme-stats.vercel.app/api/pin/?username=codergautam900&repo=Blogshub&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7&icon_color=7bf7c4";
+  const githubChatRepoUrl = "https://github-readme-stats.vercel.app/api/pin/?username=codergautam900&repo=mern-chat-app&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7&icon_color=7bf7c4";
+  const githubCards = [
+    {
+      src: githubStatsUrl,
+      alt: "GitHub stats card for Gautam Sagar",
+      href: socialLinks[0].href,
+    },
+    {
+      src: githubLanguagesUrl,
+      alt: "Top languages card for Gautam Sagar",
+      href: socialLinks[0].href,
+    },
+    {
+      src: githubBlogshubRepoUrl,
+      alt: "Blogshub repository card for Gautam Sagar",
+      href: "https://github.com/codergautam900/Blogshub",
+    },
+    {
+      src: githubChatRepoUrl,
+      alt: "MERN chat app repository card for Gautam Sagar",
+      href: "https://github.com/codergautam900/mern-chat-app",
+    },
+  ];
 
   return (
     <div className="app-shell">
@@ -308,7 +424,7 @@ function App() {
             </nav>
 
             <div className="nav-actions">
-              <a className="mini-cta" href="/Gautam-Sagar-Resume.txt" download>
+              <a className="mini-cta" href={resumeFile} download>
                 Resume
               </a>
               <button
@@ -363,8 +479,8 @@ function App() {
                   View Projects
                   <FiArrowRight />
                 </a>
-                <a className="btn btn-secondary" href="/Gautam-Sagar-Resume.txt" download>
-                  Download Resume
+                <a className="btn btn-secondary" href={resumeFile} download>
+                  Download Resume PDF
                   <FiDownload />
                 </a>
                 <a className="btn btn-ghost" href="#contact">
@@ -584,10 +700,10 @@ function App() {
           <div className="container">
             <div className="section-heading">
               <span className="section-kicker">Projects</span>
-              <h2>Two serious builds aimed at useful, high-impact outcomes.</h2>
+              <h2>Featured projects that show product thinking, realtime systems, and full stack execution.</h2>
               <p>
-                These projects reflect the kind of products I enjoy most: systems that blend strong backend logic,
-                responsive experiences, and real-world purpose.
+                These projects reflect the kind of systems I enjoy building most: practical products with strong
+                backend logic, clear user flows, and room for meaningful scale.
               </p>
             </div>
 
@@ -602,11 +718,23 @@ function App() {
                   <span className="project-status">{project.status}</span>
                   <div className="project-header">
                     <h3>{project.title}</h3>
-                    <a href={`mailto:${portfolio.email}`} aria-label={`Discuss ${project.title}`}>
+                    <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} repository`}>
                       <FiExternalLink />
                     </a>
                   </div>
                   <p className="project-summary">{project.summary}</p>
+                  <p className="project-takeaway">
+                    <strong>What this proves:</strong> {project.takeaway}
+                  </p>
+
+                  <div className="project-evidence-grid">
+                    {project.evidence.map((item) => (
+                      <div key={`${project.title}-${item.label}`} className="project-evidence-card">
+                        <span>{item.label}</span>
+                        <strong>{item.value}</strong>
+                      </div>
+                    ))}
+                  </div>
 
                   <ul className="project-points">
                     {project.points.map((point) => (
@@ -621,7 +749,59 @@ function App() {
                       </span>
                     ))}
                   </div>
+
+                  <div className="project-actions">
+                    <a className="btn btn-secondary project-link-button" href={project.repo} target="_blank" rel="noreferrer">
+                      View Project
+                      <FiExternalLink />
+                    </a>
+                  </div>
                 </motion.article>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="section"
+          id="readiness"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.18 }}
+        >
+          <div className="container">
+            <div className="section-heading">
+              <span className="section-kicker">Execution Signals</span>
+              <h2>What an interviewer can quickly infer from this portfolio.</h2>
+              <p>
+                The strongest signal here is not just design polish. It is consistent proof that I like building
+                complete systems with user-facing clarity, backend structure, and practical problem framing.
+              </p>
+            </div>
+
+            <div className="readiness-grid">
+              {executionSignals.map(({ title, description, bullets, icon: Icon }) => (
+                <article key={title} className="card readiness-card">
+                  <div className="readiness-head">
+                    <span className="focus-icon">
+                      <Icon />
+                    </span>
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{description}</p>
+                    </div>
+                  </div>
+
+                  <ul className="readiness-list">
+                    {bullets.map((bullet) => (
+                      <li key={bullet}>
+                        <FiCheckCircle />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           </div>
@@ -638,29 +818,26 @@ function App() {
           <div className="container">
             <div className="section-heading">
               <span className="section-kicker">GitHub Stats</span>
-              <h2>Code presence, learning momentum, and public developer identity.</h2>
+              <h2>Live GitHub cards that show profile stats, language mix, and featured repositories.</h2>
               <p>
-                The profile section combines live GitHub cards with a quick read on what I am actively building and
-                improving.
+                This section now pulls live visuals for overall profile stats, top languages, and highlighted public
+                repositories so the cards stay meaningful and visible.
               </p>
             </div>
 
             <div className="github-layout">
               <div className="github-stats">
-                <a className="card github-card" href={socialLinks[0].href} target="_blank" rel="noreferrer">
-                  <img
-                    src={githubStatsUrl}
-                    alt="GitHub stats card for Gautam Sagar"
-                    loading="lazy"
-                  />
-                </a>
-                <a className="card github-card" href={socialLinks[0].href} target="_blank" rel="noreferrer">
-                  <img
-                    src={githubLanguagesUrl}
-                    alt="Top languages card for Gautam Sagar"
-                    loading="lazy"
-                  />
-                </a>
+                {githubCards.map((card) => (
+                  <a
+                    key={card.alt}
+                    className="card github-card"
+                    href={card.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src={card.src} alt={card.alt} loading="lazy" />
+                  </a>
+                ))}
               </div>
 
               <div className="github-highlights">
@@ -719,6 +896,13 @@ function App() {
                       {goal}
                     </div>
                   ))}
+                </div>
+
+                <div className="project-actions">
+                  <a className="btn btn-secondary project-link-button" href={resumeFile} download>
+                    Download Resume PDF
+                    <FiDownload />
+                  </a>
                 </div>
               </article>
 
@@ -796,7 +980,7 @@ function App() {
               GitHub
             </a>
             <a href={`mailto:${portfolio.email}`}>Email</a>
-            <a href="/Gautam-Sagar-Resume.txt" download>
+            <a href={resumeFile} download>
               Resume
             </a>
           </div>

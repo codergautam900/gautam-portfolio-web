@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gautam Sagar Resume</title>
+    <style>
+      :root {
+        --ink: #10233a;
+        --muted: #526884;
+        --line: #d9e5f0;
+        --accent: #0f7cff;
+        --accent-soft: #eaf4ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--ink);
+        background: #f5f8fc;
+      }
+
+      .page {
+        width: min(920px, 100%);
+        margin: 0 auto;
+        background: #fff;
+        padding: 44px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.05;
+        margin-bottom: 10px;
+      }
+
+      .headline {
+        color: var(--accent);
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .summary {
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      .contact {
+        display: grid;
+        gap: 10px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--accent-soft);
+      }
+
+      .contact strong {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .contact a,
+      .contact span {
+        color: var(--ink);
+        text-decoration: none;
+        line-height: 1.5;
+        word-break: break-word;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+        margin-top: 28px;
+      }
+
+      section {
+        display: grid;
+        gap: 14px;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+
+      h2 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--accent);
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        background: #fff;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #f4f7fb;
+        border: 1px solid var(--line);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .stack {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .project {
+        display: grid;
+        gap: 10px;
+      }
+
+      .project-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .project-head a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .project-head h3 {
+        font-size: 18px;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .role {
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .footer-note {
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          width: 100%;
+          margin: 0;
+          padding: 28px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          padding: 24px;
+        }
+
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <h1>Gautam Sagar</h1>
+          <p class="headline">Full Stack Developer | Flutter Developer | AI/ML Enthusiast</p>
+          <p class="summary">
+            Passionate developer focused on building real-world, scalable software systems. Hands-on with full stack
+            development and Flutter, while actively exploring AI/ML to solve practical problems. Interested in
+            impactful products, dependable engineering, and continuous growth through real implementation work.
+          </p>
+        </div>
+
+        <aside class="contact">
+          <strong>Contact</strong>
+          <a href="mailto:gateaspirant8650@gmail.com">gateaspirant8650@gmail.com</a>
+          <a href="tel:7900503595">7900503595</a>
+          <a href="https://github.com/codergautam900">github.com/codergautam900</a>
+          <a href="https://x.com/GautamR03279682">x.com/GautamR03279682</a>
+          <a href="https://www.hackerrank.com/profile/gateaspirant8650">HackerRank Profile</a>
+          <a href="https://www.instagram.com/fitcodergautam">Instagram</a>
+        </aside>
+      </header>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Education</h2>
+          <h3>B.Tech in Computer Science (AKTU)</h3>
+          <p class="meta">2023-2027</p>
+        </section>
+
+        <section class="card">
+          <h2>Career Goals</h2>
+          <div class="chip-row">
+            <span class="chip">Software Development Internships</span>
+            <span class="chip">Backend Roles</span>
+            <span class="chip">Full Stack Roles</span>
+            <span class="chip">Impactful Tech Products</span>
+          </div>
+        </section>
+
+        <section class="card full">
+          <h2>Core Skills</h2>
+          <p class="stack">
+            Frontend: HTML, CSS, JavaScript, React<br />
+            Backend: Node.js, Express<br />
+            Database: MongoDB<br />
+            Mobile: Flutter<br />
+            Programming: Java, Python<br />
+            Tools: Git, GitHub, Socket.IO
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Strengths</h2>
+          <ul class="list">
+            <li>Built SaaS-style applications with authentication and role management</li>
+            <li>Experience with realtime systems and API design</li>
+            <li>Integrated AI/ML-oriented features into product workflows</li>
+            <li>Hackathon-oriented build mindset with fast execution</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Engineering Focus</h2>
+          <ul class="list">
+            <li>Scalable product thinking with practical user flows</li>
+            <li>Responsive UI and mobile-friendly development</li>
+            <li>Backend logic, data flow, and realtime communication</li>
+            <li>Learning fast through implementation-heavy projects</li>
+          </ul>
+        </section>
+
+        <section class="card full project">
+          <h2>Featured Projects</h2>
+
+          <div>
+            <div class="project-head">
+              <h3>SustainOS AI</h3>
+              <a href="https://github.com/gauravgautam2003/SustaionOS-open-source-sustainability-monitoring-action-app.git">Repository</a>
+            </div>
+            <p class="role">
+              Sustainability intelligence platform that converts water and energy telemetry into alerts, AI insights,
+              and forecasts for smart campuses and infrastructure systems.
+            </p>
+            <p class="meta">
+              Signals: full stack product structure, role-aware workflows, dashboards, operational visibility,
+              forecasting-oriented thinking
+            </p>
+          </div>
+
+          <div>
+            <div class="project-head">
+              <h3>Silent Witness</h3>
+              <a href="https://github.com/codergautam900/-InvisibleWitness-AI.git">Repository</a>
+            </div>
+            <p class="role">
+              Intelligent accident detection and reporting system built around structured incident flow and realtime
+              emergency alerts to improve response time.
+            </p>
+            <p class="meta">
+              Signals: event-driven system thinking, realtime workflows, backend communication, safety-focused problem
+              framing
+            </p>
+          </div>
+
+          <div>
+            <div class="project-head">
+              <h3>Blogshub</h3>
+              <a href="https://github.com/codergautam900/Blogshub.git">Repository</a>
+            </div>
+            <p class="role">
+              MERN blogging platform for content creation, management, and reader-writer workflow.
+            </p>
+            <p class="meta">Signals: CRUD design, routing, structured UI, backend-connected features</p>
+          </div>
+
+          <div>
+            <div class="project-head">
+              <h3>MERN Chat App</h3>
+              <a href="https://github.com/codergautam900/mern-chat-app.git">Repository</a>
+            </div>
+            <p class="role">
+              Realtime chat application exploring messaging flow, responsive interface behavior, and interactive app
+              state.
+            </p>
+            <p class="meta">Signals: Socket.IO patterns, live state handling, full stack communication features</p>
+          </div>
+        </section>
+      </div>
+
+      <p class="footer-note">Gautam Sagar | Resume generated for portfolio download and interviewer review.</p>
+    </main>
+  </body>
+</html>
