@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_BASE_URL } from "../services/api.js";
 
 const AuthContext = createContext();
-
-const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+const BASE_URL = API_BASE_URL;
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);

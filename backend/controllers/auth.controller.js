@@ -74,8 +74,15 @@ const initAdmin = async (req, res) => {
             });
         }
 
-        const email = ENV.MY_EMAIL || "admin@example.com";
-        const password = ENV.MY_PASSWORD || "admin123";
+        const email = ENV.ADMIN_EMAIL;
+        const password = ENV.ADMIN_PASSWORD;
+
+        if (!email || !password) {
+            return res.status(400).json({
+                success: false,
+                message: "ADMIN_EMAIL and ADMIN_PASSWORD must be configured before admin initialization.",
+            });
+        }
 
         const admin = await User.create({
             email,
@@ -93,8 +100,7 @@ const initAdmin = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Failed to initialize admin",
-            error: error.message,
-            stack: error.stack,
+            ...(ENV.NODE_ENV !== "production" && { details: error.message }),
         });
     }
 };

@@ -53,9 +53,9 @@ const socialLinks = [
 ];
 
 const quickStats = [
-  { value: "4", label: "Public portfolio projects with visible repository proof" },
-  { value: "3", label: "Core tracks: Full Stack, Flutter, and AI/ML exploration" },
-  { value: "2023-2027", label: "B.Tech CSE journey at AKTU" },
+  { value: "4", label: "Public project repos" },
+  { value: "3", label: "Core focus tracks" },
+  { value: "2023-2027", label: "B.Tech CSE at AKTU" },
 ];
 
 const highlights = [
@@ -243,25 +243,48 @@ const projects = [
 
 const githubHighlights = [
   {
-    title: "Primary Profile",
+    title: "Main GitHub",
     value: "codergautam900",
-    description: "Central place for ongoing builds, experiments, and portfolio work.",
+    description: "Home for portfolio work, experiments, and public repositories.",
   },
   {
     title: "Problem Solving",
     value: "HackerRank",
-    description: "Actively sharpening logic, coding fluency, and implementation speed.",
+    description: "Sharpening logic, coding fluency, and implementation speed.",
   },
   {
     title: "Current Focus",
     value: "Full Stack + Flutter + AI/ML",
-    description: "Balancing product delivery with deeper systems and ML exploration.",
+    description: "Balancing product builds with systems and ML exploration.",
   },
   {
-    title: "Collaboration Mode",
-    value: "Internship Ready",
-    description: "Open to teams solving meaningful backend, mobile, or platform problems.",
+    title: "Availability",
+    value: "Open to Internships",
+    description: "Interested in backend, full stack, and product-focused team environments.",
   },
+];
+
+const githubShowcase = [
+  {
+    title: "Blogshub",
+    type: "Featured Repository",
+    href: "https://github.com/codergautam900/Blogshub",
+    summary: "MERN blogging platform demonstrating full stack CRUD workflows and content-focused product structure.",
+    stack: ["MERN", "CRUD", "Routing"],
+  },
+  {
+    title: "MERN Chat App",
+    type: "Featured Repository",
+    href: "https://github.com/codergautam900/mern-chat-app",
+    summary: "Realtime communication project showing message flow, app state handling, and Socket.IO-oriented thinking.",
+    stack: ["Socket.IO", "Realtime", "Authentication"],
+  },
+];
+
+const githubMetrics = [
+  { value: "4", label: "featured public projects" },
+  { value: "3", label: "focus tracks on display" },
+  { value: "Open", label: "for internships" },
 ];
 
 const sectionVariants = {
@@ -306,6 +329,28 @@ const buildMailtoUrl = ({ name, email, subject, message }) => {
   });
 
   return `mailto:${portfolio.email}?${params.toString()}`;
+};
+
+const GitHubAvatar = ({ username, name }) => {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  if (imageFailed) {
+    return (
+      <div className="github-avatar github-avatar--fallback" aria-label={`${name} avatar fallback`}>
+        <span>{name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      className="github-avatar"
+      src={`https://github.com/${username}.png?size=280`}
+      alt={`${name} GitHub avatar`}
+      loading="lazy"
+      onError={() => setImageFailed(true)}
+    />
+  );
 };
 
 function App() {
@@ -372,33 +417,6 @@ function App() {
   const closeMenu = () => {
     setMenuOpen(false);
   };
-
-  const githubStatsUrl = `https://github-readme-stats.vercel.app/api?username=${portfolio.githubUsername}&show_icons=true&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7&icon_color=7bf7c4&ring_color=ffb26b`;
-  const githubLanguagesUrl = `https://github-readme-stats.vercel.app/api/top-langs/?username=${portfolio.githubUsername}&layout=compact&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7`;
-  const githubBlogshubRepoUrl = "https://github-readme-stats.vercel.app/api/pin/?username=codergautam900&repo=Blogshub&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7&icon_color=7bf7c4";
-  const githubChatRepoUrl = "https://github-readme-stats.vercel.app/api/pin/?username=codergautam900&repo=mern-chat-app&hide_border=true&bg_color=00000000&title_color=62d0ff&text_color=a9bdd7&icon_color=7bf7c4";
-  const githubCards = [
-    {
-      src: githubStatsUrl,
-      alt: "GitHub stats card for Gautam Sagar",
-      href: socialLinks[0].href,
-    },
-    {
-      src: githubLanguagesUrl,
-      alt: "Top languages card for Gautam Sagar",
-      href: socialLinks[0].href,
-    },
-    {
-      src: githubBlogshubRepoUrl,
-      alt: "Blogshub repository card for Gautam Sagar",
-      href: "https://github.com/codergautam900/Blogshub",
-    },
-    {
-      src: githubChatRepoUrl,
-      alt: "MERN chat app repository card for Gautam Sagar",
-      href: "https://github.com/codergautam900/mern-chat-app",
-    },
-  ];
 
   return (
     <div className="app-shell">
@@ -818,26 +836,73 @@ function App() {
           <div className="container">
             <div className="section-heading">
               <span className="section-kicker">GitHub Stats</span>
-              <h2>Live GitHub cards that show profile stats, language mix, and featured repositories.</h2>
+              <h2>GitHub section built for clarity, not fragile external widgets.</h2>
               <p>
-                This section now pulls live visuals for overall profile stats, top languages, and highlighted public
-                repositories so the cards stay meaningful and visible.
+                This version keeps things simple and readable: profile identity, highlighted repositories, and fast
+                signals about what I am actively building.
               </p>
             </div>
 
             <div className="github-layout">
               <div className="github-stats">
-                {githubCards.map((card) => (
-                  <a
-                    key={card.alt}
-                    className="card github-card"
-                    href={card.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <img src={card.src} alt={card.alt} loading="lazy" />
-                  </a>
-                ))}
+                <article className="card github-profile-card">
+                  <div className="github-profile-head">
+                    <GitHubAvatar username={portfolio.githubUsername} name={portfolio.name} />
+                    <div className="github-profile-copy">
+                      <span className="github-pill">GitHub Profile</span>
+                      <h3>{portfolio.name}</h3>
+                      <p>@{portfolio.githubUsername}</p>
+                    </div>
+                  </div>
+
+                  <p className="github-profile-summary">
+                    Public work centered on full stack products, realtime systems, and practical exploration across
+                    Flutter and AI/ML ideas.
+                  </p>
+
+                  <div className="github-metric-grid">
+                    {githubMetrics.map((item) => (
+                      <div key={item.label} className="github-metric-card">
+                        <strong>{item.value}</strong>
+                        <span>{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="project-actions">
+                    <a className="btn btn-secondary project-link-button" href={socialLinks[0].href} target="_blank" rel="noreferrer">
+                      Open GitHub Profile
+                      <FiExternalLink />
+                    </a>
+                  </div>
+                </article>
+
+                <div className="github-showcase-grid">
+                  {githubShowcase.map((item) => (
+                    <a
+                      key={item.title}
+                      className="card github-showcase-card"
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="project-status">{item.type}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.summary}</p>
+                      <div className="tag-list">
+                        {item.stack.map((tag) => (
+                          <span key={`${item.title}-${tag}`} className="tag">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="github-inline-link">
+                        View on GitHub
+                        <FiExternalLink />
+                      </span>
+                    </a>
+                  ))}
+                </div>
               </div>
 
               <div className="github-highlights">

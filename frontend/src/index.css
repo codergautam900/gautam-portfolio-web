@@ -971,6 +971,7 @@ img {
 }
 
 .github-layout {
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.8fr);
   align-items: start;
 }
 
@@ -981,18 +982,145 @@ img {
 }
 
 .github-stats {
+  grid-template-columns: 1fr;
+}
+
+.github-profile-card {
+  display: grid;
+  gap: 1.2rem;
+  min-height: 100%;
+}
+
+.github-profile-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.github-avatar {
+  width: 5.8rem;
+  height: 5.8rem;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  background: var(--surface-soft);
+}
+
+.github-avatar--fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(98, 208, 255, 0.18), rgba(123, 247, 196, 0.14));
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.github-profile-copy {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.github-profile-copy h3,
+.github-showcase-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  overflow-wrap: anywhere;
+}
+
+.github-profile-copy p,
+.github-showcase-card p,
+.github-profile-summary,
+.github-inline-link {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.github-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(98, 208, 255, 0.08);
+  border: 1px solid rgba(98, 208, 255, 0.18);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.github-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.github-metric-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.95rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.github-metric-card strong {
+  font-size: 1rem;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.github-metric-card span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.github-showcase-card {
+  display: grid;
+  gap: 1rem;
+  min-height: 100%;
+  align-content: start;
+}
+
+.github-showcase-grid {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.github-card {
-  display: block;
-  min-height: 15rem;
+.github-highlights {
+  align-content: start;
 }
 
-.github-card img {
-  width: 100%;
-  min-height: 12rem;
-  object-fit: contain;
+.github-mini-card {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.github-mini-card span,
+.github-mini-card p {
+  overflow-wrap: anywhere;
+}
+
+.github-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--accent-strong);
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.github-showcase-card:hover,
+.github-profile-card:hover {
+  transform: translateY(-6px);
 }
 
 .github-mini-card strong {
@@ -1160,6 +1288,19 @@ img {
 
   .github-stats {
     grid-template-columns: 1fr;
+  }
+
+  .github-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .github-metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .github-profile-head {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
