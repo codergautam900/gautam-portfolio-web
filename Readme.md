@@ -2,40 +2,53 @@
 
 # Gautam Sagar Portfolio
 
-Premium developer portfolio built with a polished React + Vite frontend and a Node + Express + MongoDB backend for admin-ready content management.
+Premium full stack portfolio platform with a cinematic React frontend and an admin-ready Node + Express + MongoDB backend.
 
 <p>
-  <strong>Responsive UI</strong> | <strong>Theme toggle</strong> | <strong>REST API</strong> | <strong>Deploy-ready env setup</strong>
+  <strong>React 19</strong> | <strong>Vite 7</strong> | <strong>Express 5</strong> | <strong>MongoDB</strong> | <strong>Framer Motion</strong>
 </p>
 
 </div>
 
 ## Overview
 
-This repository contains a portfolio platform split into two deployable apps:
+This repository contains a polished developer portfolio that can be used in two ways:
 
-- `frontend/` ships the premium landing experience rendered from `src/App.jsx`.
-- `backend/` provides authenticated portfolio APIs for profile, projects, skills, experience, contact messages, and AI-assisted text enhancement.
+- `frontend/` can be deployed as a standalone landing portfolio.
+- `backend/` unlocks admin/content APIs for profile, projects, skills, experience, contact handling, and AI-assisted copy enhancement.
 
-If you only want to deploy the landing page, the frontend can run on its own. If you want admin/content APIs, deploy both apps and connect them with `VITE_BACKEND_URL`.
+The current portfolio experience is rendered from [frontend/src/App.jsx](./frontend/src/App.jsx), while the backend API starts from [backend/server.js](./backend/server.js).
 
-## Tech Stack
+## What Makes It Strong
 
-| Layer | Tools |
-| --- | --- |
-| Frontend | React 19, Vite 7, Framer Motion, React Icons, custom CSS |
-| Backend | Node.js, Express 5, MongoDB, Mongoose, JWT |
-| Media / Messaging | Cloudinary, Nodemailer |
-| AI | Gemini API |
-| Deployment | Vercel / Netlify for frontend, Render / Railway / VPS for backend |
+- Cinematic single-page portfolio UI with layered gradients, motion, and responsive sections
+- Direct resume download flow, GitHub visibility, and contact conversion points
+- Structured backend for managing profile, projects, skills, and experience data
+- Secure admin login flow backed by JWT
+- AI endpoint for improving portfolio text using Gemini
+- Deployment-friendly env setup for local, preview, and production environments
 
-## Highlights
+## Architecture Snapshot
 
-- Premium single-page portfolio UI with strong visual hierarchy, motion, and mobile responsiveness
-- Light and dark theme support with local preference persistence
-- GitHub profile surfacing, downloadable resume, and direct contact CTA
-- Admin-capable backend for updating profile, projects, experience, and skills
-- Deployment-focused configuration with env examples, CORS control, and safer admin seeding
+| Layer | Responsibility | Key Files |
+| --- | --- | --- |
+| Frontend shell | Main portfolio entry, section rendering, resume CTA | [frontend/src/App.jsx](./frontend/src/App.jsx) |
+| Frontend styling | Global visual system, layout, responsive rules | [frontend/src/index.css](./frontend/src/index.css) |
+| Frontend API client | Shared axios instance, auth token injection, API helpers | [frontend/src/services/api.js](./frontend/src/services/api.js) |
+| Backend server | CORS, middleware, route registration, startup lifecycle | [backend/server.js](./backend/server.js) |
+| Backend routes | Portfolio CRUD and service endpoints | [backend/routes](./backend/routes) |
+| Data models | MongoDB schemas for portfolio entities | [backend/models](./backend/models) |
+
+## Portfolio Experience Map
+
+The landing flow in [frontend/src/App.jsx](./frontend/src/App.jsx) is organized around these core sections:
+
+1. Hero introduction with role-based messaging and immediate CTAs
+2. About section that frames background, goals, and execution style
+3. Skills and projects sections for technical proof
+4. Readiness and GitHub sections for credibility
+5. Contact section for conversion
+6. Repeated resume download entry points across the page
 
 ## Project Structure
 
@@ -48,30 +61,23 @@ my-portfolio/
 |   |-- models/
 |   |-- routes/
 |   |-- .env.example
+|   |-- package.json
 |   `-- server.js
 |-- frontend/
 |   |-- public/
 |   |-- src/
 |   |-- .env.example
+|   |-- package.json
 |   `-- vite.config.js
 |-- LICENSE.md
 `-- README.md
 ```
 
-## Local Development
+## Quick Start
 
-### 1. Backend
+### Frontend Only
 
-```powershell
-cd backend
-npm install
-Copy-Item .env.example .env
-npm run dev
-```
-
-Backend defaults to `http://localhost:5000`.
-
-### 2. Frontend
+Use this mode if you only want the portfolio landing page.
 
 ```powershell
 cd frontend
@@ -80,71 +86,117 @@ Copy-Item .env.example .env
 npm run dev
 ```
 
-Frontend defaults to `http://localhost:5173`.
+Default URL: `http://localhost:5173`
 
-## Environment Files
+### Full Stack Mode
 
-### `backend/.env`
+Run both apps when you want API-backed portfolio content and admin features.
 
-Use [backend/.env.example](./backend/.env.example) as the template.
+```powershell
+cd backend
+npm install
+Copy-Item .env.example .env
+npm run dev
+```
 
-Important variables:
+Backend default URL: `http://localhost:5000`
 
-- `MONGODB_URL`: MongoDB connection string
-- `SECRET_TOKEN_KEY`: JWT signing secret
-- `MY_EMAIL` / `MY_PASSWORD`: SMTP sender credentials for contact emails
-- `ADMIN_EMAIL` / `ADMIN_PASSWORD`: admin account used for automatic seeding
-- `CORS_ORIGINS`: comma-separated frontend URLs allowed to call the API
-- `CLOUDINARY_*`: required only when image uploads are used
-- `GEMINI_API_KEY`: required only when AI enhancement endpoints are used
+In a second terminal:
 
-### `frontend/.env`
+```powershell
+cd frontend
+npm install
+Copy-Item .env.example .env
+npm run dev
+```
 
-Use [frontend/.env.example](./frontend/.env.example) as the template.
-
-- `VITE_BACKEND_URL`: deployed backend base URL, for example `https://your-api.onrender.com`
-
-## Deployment Checklist
+## Environment Reference
 
 ### Frontend
 
-1. Deploy the `frontend/` folder to Vercel or Netlify.
-2. Set `VITE_BACKEND_URL` to your live backend URL.
-3. Build command: `npm run build`
-4. Output directory: `dist`
+Use [frontend/.env.example](./frontend/.env.example) as the base file.
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `VITE_BACKEND_URL` | Only for API-backed mode | Base URL of the deployed or local backend |
 
 ### Backend
 
-1. Deploy the `backend/` folder to Render, Railway, or your preferred Node host.
-2. Set all required environment variables from [backend/.env.example](./backend/.env.example).
-3. Start command: `npm start`
-4. Confirm the health route returns success at `GET /`
+Use [backend/.env.example](./backend/.env.example) as the base file.
 
-### After Deploy
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `MONGODB_URL` | Yes | MongoDB connection string |
+| `SECRET_TOKEN_KEY` | Yes | JWT signing secret |
+| `ADMIN_EMAIL` | Yes | Seeded admin login email |
+| `ADMIN_PASSWORD` | Yes | Seeded admin login password |
+| `MY_EMAIL` | For contact mail | Sender email used by Nodemailer |
+| `MY_PASSWORD` | For contact mail | Sender email password or app password |
+| `CORS_ORIGINS` | Recommended | Comma-separated allowed frontend origins |
+| `CLOUDINARY_CLOUD_NAME` | For uploads | Cloudinary storage config |
+| `CLOUDINARY_API_KEY` | For uploads | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | For uploads | Cloudinary API secret |
+| `GEMINI_API_KEY` | For AI endpoint | Enables copy enhancement endpoint |
 
-1. Verify frontend loads without console errors.
-2. Verify `GET /` on the backend returns the API health payload.
-3. Confirm `CORS_ORIGINS` contains the exact deployed frontend URL.
-4. Test admin login if you plan to use backend content management.
-5. Test contact flow and image upload only after SMTP and Cloudinary credentials are configured.
+## Resume Management
+
+The live download button in the frontend points to:
+
+- [frontend/public/Gautam-Sagar-Resume.pdf](./frontend/public/Gautam-Sagar-Resume.pdf)
+
+To update the resume later, replace that file while keeping the same filename so every CTA continues to work without code changes.
 
 ## API Surface
 
-| Route Group | Purpose |
+| Route Prefix | Purpose |
 | --- | --- |
-| `/api/auth` | Admin login and authenticated user lookup |
-| `/api/user/profile` | Portfolio profile fetch/update |
+| `/api/auth` | Admin login, auth status, initialization |
+| `/api/user/profile` | Profile fetch and update |
 | `/api/projects` | Project CRUD |
 | `/api/experiences` | Experience and education CRUD |
-| `/api/skills` | Skill CRUD |
+| `/api/skills` | Skill CRUD and category grouping |
 | `/api/contact` | Contact form submission |
-| `/api/ai/enhance` | AI-assisted text enhancement |
+| `/api/ai/enhance` | Gemini-powered text enhancement |
 
-## Production Notes
+## Deployment Playbook
 
-- Admin initialization no longer falls back to insecure default credentials. Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` explicitly before deploying.
-- Contact email delivery depends on valid SMTP credentials in `MY_EMAIL` and `MY_PASSWORD`.
-- The current polished landing page lives in [frontend/src/App.jsx](./frontend/src/App.jsx) and styling is centered in [frontend/src/index.css](./frontend/src/index.css).
+### Frontend
+
+1. Deploy the `frontend/` directory to Vercel or Netlify.
+2. Set `VITE_BACKEND_URL` if the backend is also deployed.
+3. Use `npm run build` as the build command.
+4. Use `dist/` as the publish directory.
+
+### Backend
+
+1. Deploy the `backend/` directory to Render, Railway, or another Node host.
+2. Configure environment variables from [backend/.env.example](./backend/.env.example).
+3. Use `npm start` as the production start command.
+4. Verify the health route at `GET /`.
+
+### Final Checks
+
+1. Confirm the frontend loads without console errors.
+2. Confirm backend health returns success.
+3. Confirm `CORS_ORIGINS` includes the deployed frontend URL exactly.
+4. Test admin authentication before sharing the dashboard.
+5. Test contact email flow only after SMTP credentials are configured.
+
+## Customization Hotspots
+
+- Update personal branding copy in [frontend/src/App.jsx](./frontend/src/App.jsx)
+- Refresh styling and theming in [frontend/src/index.css](./frontend/src/index.css)
+- Replace images inside [frontend/src/assets](./frontend/src/assets)
+- Adjust API behavior or auth flows in [frontend/src/services/api.js](./frontend/src/services/api.js)
+- Expand backend business logic in [backend/controllers](./backend/controllers)
+
+## Troubleshooting
+
+- If the frontend cannot reach the API, check `VITE_BACKEND_URL` and confirm the backend is running.
+- If requests fail in production, confirm `CORS_ORIGINS` includes the exact frontend domain.
+- If contact submission fails, verify `MY_EMAIL` and `MY_PASSWORD`.
+- If image upload fails, verify Cloudinary credentials.
+- If admin login does not work after deployment, confirm `ADMIN_EMAIL` and `ADMIN_PASSWORD` were set before the backend started.
 
 ## License
 
